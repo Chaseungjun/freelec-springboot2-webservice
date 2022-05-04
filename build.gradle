@@ -14,28 +14,26 @@ plugins {
         jcenter()
     }
 
-    dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-mustache'
-        implementation 'org.springframework.boot:spring-boot-starter-web'
-        implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.7'
-        implementation 'org.springframework.data:spring-data-jpa:2.6.4'
-        implementation 'org.modelmapper:modelmapper:3.1.0'
-        implementation 'org.springframework.boot:spring-boot-starter-mustache:2.6.7'
-        implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.6.6'
-        implementation 'org.springframework.security:spring-security-oauth2-client:5.6.3'
-        implementation 'org.springframework.boot:spring-boot-starter-oauth2-client:2.6.7'
-        implementation 'org.springframework.session:spring-session-jdbc:2.6.3'
-        implementation 'mysql:mysql-connector-java:8.0.29'
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-mustache')
 
-        testImplementation 'org.springframework.security:spring-security-test:5.6.3'
+    // lombok
+    implementation('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
+    testImplementation('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
 
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation("org.mariadb.jdbc:mariadb-java-client")
+    implementation('com.h2database:h2')
 
-        compileOnly 'org.projectlombok:lombok'
-        developmentOnly 'org.springframework.boot:spring-boot-devtools'
-        runtimeOnly 'com.h2database:h2'
-        annotationProcessor 'org.projectlombok:lombok'
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    }
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
+    implementation('org.springframework.session:spring-session-jdbc')
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation("org.springframework.security:spring-security-test")
+}
 
     tasks.named('test') {
         useJUnitPlatform()

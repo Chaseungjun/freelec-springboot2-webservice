@@ -4,7 +4,7 @@ import com.simple.asw.domain.posts.Posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.modelmapper.ModelMapper;
+//import org.modelmapper.ModelMapper;
 import org.springframework.ui.Model;
 
 @Getter
@@ -15,7 +15,7 @@ public class PostsSaveRequestDto {
     private String content;
     private String author;
 
-    private static ModelMapper modelMapper = new ModelMapper();
+//    private static ModelMapper modelMapper = new ModelMapper();
 
     @Builder
     public PostsSaveRequestDto(String title, String content, String author) {

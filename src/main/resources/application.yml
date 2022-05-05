@@ -3,6 +3,7 @@ spring:
     store-type: jdbc
   profiles:
     include: oauth
+    active: local
   datasource:
     url: jdbc:h2:tcp://localhost/~/asw
     username: sa

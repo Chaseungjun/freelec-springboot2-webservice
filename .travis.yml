@@ -12,7 +12,7 @@ before_install:
 before_deploy:
   - zip -r asw *
   - mkdir -p deploy
-  - mv freelec-springboot2-webservice.zip deploy/freelec-springboot2-webservice.zip
+  - mv asw.zip deploy/asw.zip
 
 deploy:
   - provider: s3

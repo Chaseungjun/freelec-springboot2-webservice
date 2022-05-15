@@ -6,10 +6,17 @@ branches:
   only:
     - master
 
+# Travis CI 서버의 Home
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+
+script: "./gradlew clean build"
+
 before_install:
   - chmod +x gradlew
 
-script: "./gradlew clean build"
 
 before_deploy:
   - zip -r asw *
@@ -26,14 +33,6 @@ deploy:
     acl: private # zip 파일 접근을 private으로
     local_dir: deploy # before_deploy에서 생성한 디렉토리
     wait-until-deployed: true
-
-# Travis CI 서버의 Home
-cache:
-  directories:
-    - '$HOME/.m2/repository'
-    - '$HOME/.gradle'
-
-
 
 # CI 실행 완료시 메일로 알람
 notifications:
